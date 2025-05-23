@@ -1,0 +1,45 @@
+{
+  "name": "cse341_job_application_project",
+  "version": "1.0.0",
+  "description": "Job Application API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "swagger": "node ./swagger.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torresmarcoa/cse341_job_application_project.git"
+  },
+  "author": "Marco Torres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/torresmarcoa/cse341_job_application_project/issues"
+  },
+  "homepage": "https://github.com/torresmarcoa/cse341_job_application_project#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.15.0",
+    "nodemon": "^3.1.10",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^3.5.3"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

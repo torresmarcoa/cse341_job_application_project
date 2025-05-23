@@ -1,0 +1,475 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Job Application Tracker API",
+    "description": "API para gestionar aplicaciones de empleo y reclutadores.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Welcome Message"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/applications/": {
+      "get": {
+        "tags": [
+          "Job Application"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Job Application"
+        ],
+        "description": "Creates a new job application",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Job application information",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "jobTitle": {
+                  "type": "string",
+                  "example": "Software Engineer"
+                },
+                "company": {
+                  "type": "string",
+                  "example": "Tech Corp"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "New York"
+                },
+                "salary": {
+                  "type": "number",
+                  "example": 80000
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Applied"
+                },
+                "applicationDate": {
+                  "type": "string",
+                  "example": "2025-05-20"
+                },
+                "jobLink": {
+                  "type": "string",
+                  "example": "https://joblink.example.com"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Follow up in two weeks"
+                },
+                "resumeVersion": {
+                  "type": "string",
+                  "example": "v1"
+                }
+              },
+              "required": [
+                "jobTitle",
+                "company"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/applications/{id}": {
+      "get": {
+        "tags": [
+          "Job Application"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Job Application"
+        ],
+        "description": "Updates an existing job application by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Job application ID"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated job application data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "jobTitle": {
+                  "type": "string",
+                  "example": "Software Engineer"
+                },
+                "company": {
+                  "type": "string",
+                  "example": "Tech Corp"
+                },
+                "location": {
+                  "type": "string",
+                  "example": "New York"
+                },
+                "salary": {
+                  "type": "number",
+                  "example": 85000
+                },
+                "status": {
+                  "type": "string",
+                  "example": "Interview"
+                },
+                "applicationDate": {
+                  "type": "string",
+                  "example": "2025-05-20"
+                },
+                "jobLink": {
+                  "type": "string",
+                  "example": "https://joblink.example.com"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Interview scheduled"
+                },
+                "resumeVersion": {
+                  "type": "string",
+                  "example": "v2"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Job Application"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/recruiters/": {
+      "get": {
+        "tags": [
+          "Recruiters"
+        ],
+        "description": "Get all recruiters",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Recruiters"
+        ],
+        "description": "Create a new recruiter",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Recruiter info",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "John Doe"
+                },
+                "company": {
+                  "type": "string",
+                  "example": "Tech Corp"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "position": {
+                  "type": "string",
+                  "example": "HR Manager"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Contacted via LinkedIn"
+                },
+                "jobApplicationId": {
+                  "type": "string",
+                  "example": "60d21b4667d0d8992e610c85"
+                }
+              },
+              "required": [
+                "name",
+                "company",
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/recruiters/{id}": {
+      "get": {
+        "tags": [
+          "Recruiters"
+        ],
+        "description": "Get a single recruiter by ID",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Recruiter ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Recruiters"
+        ],
+        "description": "Update an existing recruiter by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Recruiter ID"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updated recruiter data",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "John Doe"
+                },
+                "company": {
+                  "type": "string",
+                  "example": "Tech Corp"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                },
+                "phone": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "position": {
+                  "type": "string",
+                  "example": "HR Manager"
+                },
+                "notes": {
+                  "type": "string",
+                  "example": "Updated notes"
+                },
+                "jobApplicationId": {
+                  "type": "string",
+                  "example": "60d21b4667d0d8992e610c85"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Recruiters"
+        ],
+        "description": "Delete a recruiter by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Recruiter ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}
