@@ -5,10 +5,9 @@
     "description": "API para gestionar aplicaciones de empleo y reclutadores.",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-job-application-project.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
