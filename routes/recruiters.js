@@ -6,6 +6,7 @@ const {
 } = require('../validators/recruiterValidator');
 
 const RecruiterController = require('../controllers/recruiters');
+const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', RecruiterController.getAll);
 
@@ -13,6 +14,7 @@ router.get('/:id', RecruiterController.getSingle);
 
 router.post(
   '/',
+  isAuthenticated,
   recruiterValidation,
   validateRequest,
   RecruiterController.createRecruiter,
@@ -20,11 +22,12 @@ router.post(
 
 router.put(
   '/:id',
+  isAuthenticated,
   recruiterValidation,
   validateRequest,
   RecruiterController.updateRecruiter,
 );
 
-router.delete('/:id', RecruiterController.deleteRecruiter);
+router.delete('/:id', isAuthenticated, RecruiterController.deleteRecruiter);
 
 module.exports = router;
